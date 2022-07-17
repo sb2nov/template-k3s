@@ -28,7 +28,7 @@ sudo apt install netcat sshpass -y
 echo "✅ no more apt lock"
 
 echo "Waiting for the ssh server to become available, it can take a while, after this k3s is getting installed"
-./waitssh.sh
+./wait-ssh.sh
 echo "✅ ssh server available"
 
 ./ssh.sh "curl -sfL https://get.k3s.io | sh -"
