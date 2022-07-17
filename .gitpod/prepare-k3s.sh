@@ -10,17 +10,6 @@ fi
 
 cd $script_dirname
 
-function waitssh() {
-  while ! nc -z 127.0.0.1 2222; do   
-    sleep 0.1
-  done
-  ./ssh.sh "whoami" &>/dev/null
-  if [ $? -ne 0 ]; then
-    sleep 1
-    waitssh
-  fi
-}
-
 function waitrootfs() {
   while ! test -f "${rootfslock}"; do
     sleep 0.1
@@ -39,7 +28,7 @@ sudo apt install netcat sshpass -y
 echo "✅ no more apt lock"
 
 echo "Waiting for the ssh server to become available, it can take a while, after this k3s is getting installed"
-waitssh
+./waitssh.sh
 echo "✅ ssh server available"
 
 ./ssh.sh "curl -sfL https://get.k3s.io | sh -"
