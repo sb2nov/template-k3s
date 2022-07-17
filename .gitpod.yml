@@ -15,7 +15,5 @@ tasks:
       mkdir ~/.kube/config
       sudo curl -o /usr/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       sudo chmod +x /usr/bin/kubectl
-      .gitpod/qemu.sh
-      .gitpod/wait-ssh.sh
-      sshpass -p root scp -P 2222  root@127.0.0.1:/etc/rancher/k3s/k3s.yaml   ~/.kube/config
-      kubectl get pods --all-namespaces
+      .gitpod/wait-ssh.sh && sshpass -p root scp -P 2222  root@127.0.0.1:/etc/rancher/k3s/k3s.yaml   ~/.kube/config &
+      .gitpod/qemu.sh      
