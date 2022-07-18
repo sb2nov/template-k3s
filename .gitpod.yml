@@ -16,5 +16,7 @@ tasks:
       mkdir ~/.kube
       sudo curl -o /usr/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       sudo chmod +x /usr/bin/kubectl
-      .gitpod/wait-ssh.sh && sshpass -p root scp -o StrictHostKeyChecking=no -P 2222  root@127.0.0.1:/etc/rancher/k3s/k3s.yaml   ~/.kube/config &
-      .gitpod/qemu.sh      
+      cd .gitpod/
+      ./wait-ssh.sh && sshpass -p root scp -o StrictHostKeyChecking=no -P 2222  root@127.0.0.1:/etc/rancher/k3s/k3s.yaml   ~/.kube &
+      export KUBECONFIG=~/.kube/k3s.yaml
+      ./qemu.sh      
