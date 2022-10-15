@@ -1,3 +1,18 @@
+# How to run on Gitpod
+
+1. Create a new workspace with this repo
+2. The default terminal that you're on will ask for credentials
+   - Username: root
+   - Password: root
+3. Create a new terminal and run
+   ```
+   kubectl --kubeconfig=/home/gitpod/.kube/config/k3s.yaml get pods --all-namespaces
+   ```
+
+---
+
+# SCRATCH
+
 # A K3S template on Gitpod
 
 This is a [k3s](https://k3s.io//) template configured for ephemeral Kubernetes development environments on [Gitpod](https://www.gitpod.io/).
@@ -20,7 +35,6 @@ To get started with k3s on Gitpod, copy the `.gitpod.yml` and the `.gitpod` fold
 
 ## Notes & caveats
 
-
 Here's a diagram of the interactions that also shows how the various components interact with each other.
 
 <center>
@@ -35,14 +49,12 @@ At start, the workspace will start a VM in your gitpod workspace and
 automatically install k3s on it. Your local environment will be automatically
 configured to use that via the `kubectl`
 
-
 ### Connecting via kubectl
 
 When you open your workspace terminal, the `kubectl` is already configured for you
 via the `~/.kube/config` file.
 
 ### Kubectl from my local terminal
-
 
 ### Connecting via SSH
 
