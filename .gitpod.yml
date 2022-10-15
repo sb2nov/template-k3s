@@ -20,4 +20,4 @@ tasks:
       cd .gitpod/
       ./wait-ssh.sh && sshpass -p root scp -o StrictHostKeyChecking=no -P 2222  root@127.0.0.1:/etc/rancher/k3s/k3s.yaml  ~/.kube/config &
       export KUBECONFIG=~/.kube/config/k3s.yaml
-      ./qemu.sh      
+      ./qemu.sh

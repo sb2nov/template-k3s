@@ -2,7 +2,7 @@
 
 set -xeuo pipefail
 
-.gitpod/wait-apt.sh
+./wait-apt.sh
 
 sudo apt update -y
 sudo apt install qemu qemu-system-x86 linux-image-generic -y
